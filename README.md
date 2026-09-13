@@ -1,12 +1,12 @@
 # TikTok Sticker Scraper
 
-Extension Chrome untuk scrape stiker TikTok (DM/messages) lalu download sebagai **square 1:1** — tanpa crop, diganjal pixel.
+Extension Chrome untuk scrape stiker TikTok — dari **DM/messages maupun kolom komentar** — lalu download sebagai **square 1:1** (tanpa crop, diganjal pixel).
 
 ![Popup extension](Public/popup.png)
 
 ## Fitur
 
-- **Scan stiker terlihat** — ambil `<img>` stiker + `<video>` animasi yang tampil di viewport, otomatis ketampung di History.
+- **Scan stiker terlihat** — ambil `<img>` stiker + `<video>` animasi yang tampil di viewport, baik di DM maupun kolom komentar, otomatis ketampung di History.
 - **Auto-scan** — nyala terus di tab, History nambah sendiri saat scroll.
 - **History, terbaru di atas** — tersimpan persisten (deduplikat per URL).
 - **Download 1:1 (padding, tanpa crop)** — nama file `sticker-1`, `sticker-2`, … sesuai urutan tampil, semua dikerjakan di browser:
@@ -19,7 +19,7 @@ Extension Chrome untuk scrape stiker TikTok (DM/messages) lalu download sebagai 
 
 1. Buka `chrome://extensions`, nyalakan **Developer mode**.
 2. **Load unpacked** → pilih folder ini.
-3. Buka `tiktok.com/messages`, klik ikon extension → **Scan** (atau nyalakan Auto-scan).
+3. Buka video TikTok (`tiktok.com/messages` atau halaman video berisi komentar), klik ikon extension → **Scan** (atau nyalakan Auto-scan).
 
 ## Struktur file
 
