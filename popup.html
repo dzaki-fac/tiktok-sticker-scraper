@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Visible Sticker Scraper</title>
+<style>
+  body { width: 500px; margin: 0; padding: 12px; font-family: system-ui, sans-serif; }
+  h3 { margin: 0 0 8px; font-size: 14px; }
+  .row { display: flex; gap: 8px; margin-bottom: 10px; }
+  .row button { flex: 1; padding: 8px; font-size: 13px; cursor: pointer; }
+  .count { font-size: 12px; color: #333; margin-bottom: 8px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-height: 320px; overflow-y: auto; }
+  .card { border: 1px solid #ddd; border-radius: 8px; padding: 4px; text-align: center; position: relative; }
+  .card.sel { background: #e8f0fe; border-color: #1a73e8; }
+  .card.sel img { background: #d2e3fc; }
+  .card input.sel { position: absolute; top: 6px; left: 6px; width: 16px; height: 16px; margin: 0; cursor: pointer; accent-color: #000; }
+  .card img { width: 100%; height: 110px; object-fit: contain; background: #f6f6f6; border-radius: 6px; }
+  .card video { width: 100%; height: 110px; object-fit: contain; background: #000; border-radius: 6px; }
+  .card button { width: 100%; margin-top: 4px; font-size: 12px; padding: 4px; }
+  .card .btnrow { display: flex; gap: 4px; margin-top: 4px; }
+  .card .btnrow button { flex: 1; width: auto; margin-top: 0; }
+  .selbar { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; font-size: 12px; }
+  .selbar label { display: flex; gap: 4px; align-items: center; cursor: pointer; white-space: nowrap; }
+  .selbar button { flex: 1; padding: 6px; font-size: 12px; cursor: pointer; }
+  .selbar button:disabled { opacity: 0.4; cursor: default; }
+  .selbar select { padding: 5px 2px; font-size: 12px; cursor: pointer; }
+  #selCount { color: #333; white-space: nowrap; }
+  #status { font-size: 12px; color: #a00; min-height: 16px; margin-top: 8px; }
+</style>
+</head>
+<body>
+  <h3>Sticker Scraper</h3>
+  <div class="row" style="align-items:center;">
+    <label title="Auto-scan saat scroll (jalan terus di tab ini)" style="flex:1;display:flex;gap:6px;align-items:center;justify-content:center;font-size:13px;cursor:pointer;white-space:nowrap;border:1px solid #767676;border-radius:2px;padding:8px 0;background:#f0f0f0;">
+      <input type="checkbox" id="auto" /> Auto-scan
+    </label>
+    <button id="scan">Scan</button>
+  </div>
+  <div id="histCount" class="count">0 tersimpan.</div>
+  <div class="selbar">
+    <label><input type="checkbox" id="selAll" /> Semua</label>
+    <span id="selCount"></span>
+    <select id="dlFmt" title="Format download pilihan">
+      <option value="webp">WebP</option>
+      <option value="mp4">MP4</option>
+      <option value="jpg">JPG</option>
+    </select>
+    <button id="dlSel">Download</button>
+    <button id="delSel">Hapus</button>
+  </div>
+  <div id="histGrid" class="grid"></div>
+
+  <div id="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

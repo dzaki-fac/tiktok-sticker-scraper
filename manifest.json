@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "TikTok Visible Sticker Scraper",
+  "version": "1.1.0",
+  "description": "Scrape hanya stiker yang terlihat di viewport (img[alt=sticker]).",
+  "permissions": ["downloads", "activeTab", "scripting", "storage"],
+  "host_permissions": [
+    "https://www.tiktok.com/*",
+    "https://*.tiktok.com/*",
+    "https://*.tiktokcdn.com/*",
+    "https://*.musical.ly/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Scrape Visible Stickers"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.tiktok.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
